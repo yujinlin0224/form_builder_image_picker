@@ -110,23 +110,25 @@ class ImageSourceBottomSheetState extends State<ImageSourceBottomSheet> {
         () => _onPickImage(ImageSource.gallery),
       );
     }
-    Widget res = Container(
-      padding: widget.bottomSheetPadding,
-      child: Wrap(
-        children: <Widget>[
+    Widget res = SafeArea(
+      child: Container(
+        padding: widget.bottomSheetPadding,
+        child: Wrap(
+          children: <Widget>[
           if (widget.availableImageSources.contains(ImageSourceOption.camera))
-            ListTile(
-              leading: widget.cameraIcon,
-              title: widget.cameraLabel,
-              onTap: () => _onPickImage(ImageSource.camera),
-            ),
+              ListTile(
+                leading: widget.cameraIcon,
+                title: widget.cameraLabel,
+                onTap: () => _onPickImage(ImageSource.camera),
+              ),
           if (widget.availableImageSources.contains(ImageSourceOption.gallery))
-            ListTile(
-              leading: widget.galleryIcon,
-              title: widget.galleryLabel,
-              onTap: () => _onPickImage(ImageSource.gallery),
-            ),
-        ],
+              ListTile(
+                leading: widget.galleryIcon,
+                title: widget.galleryLabel,
+                onTap: () => _onPickImage(ImageSource.gallery),
+              ),
+          ],
+        ),
       ),
     );
     if (widget.preventPop) {
